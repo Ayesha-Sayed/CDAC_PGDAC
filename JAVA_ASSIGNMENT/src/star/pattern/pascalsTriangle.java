@@ -8,7 +8,7 @@ import java.util.*;
 //1   4   6   4   1
 
 
-public class Pattern01 {
+public class pascalsTriangle {
 	public static void main(String[] args) {
 
 		Scanner sc=new Scanner(System.in);
