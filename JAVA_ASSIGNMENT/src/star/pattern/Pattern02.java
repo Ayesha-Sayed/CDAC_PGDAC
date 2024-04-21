@@ -1,14 +1,13 @@
 package star.pattern;
 import java.util.*;
-
-class star2 {
 	
 //	    *
 //	   **
 //	  ***
 //	 ****
 //	*****
-	
+
+class Pattern02{
 	public static void main(String args[])
 	{
 		Scanner sc = new Scanner(System.in);
