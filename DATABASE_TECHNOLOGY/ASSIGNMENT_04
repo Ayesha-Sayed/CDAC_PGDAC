@@ -1,0 +1,80 @@
+Assignment –4
+Retrieving Information from Tables.
+---------------------------------------------
+
+
+1) Write a select command that produces the order number, amount, and date for all rows in the Orders table.
+
+mysql> select Onum as "Order Number", amt as "Amount", date_format(Odate,'%d-%b-%y') as "Date" from Orders;
++--------------+---------+-----------+
+| Order Number | Amount  | Date      |
++--------------+---------+-----------+
+|         3001 |   18.60 | 03-Oct-90 |
+|         3003 |  767.19 | 03-Oct-90 |
+|         3002 | 1900.10 | 03-Oct-90 |
+|         3005 | 5160.45 | 03-Oct-90 |
+|         3006 | 1098.16 | 03-Oct-90 |
+|         3009 | 1713.23 | 04-Oct-90 |
+|         3007 |   75.75 | 04-Oct-90 |
+|         3008 | 4723.00 | 05-Oct-90 |
+|         3010 | 1309.95 | 06-Oct-90 |
+|         3011 | 9891.88 | 06-Oct-90 |
++--------------+---------+-----------+
+10 rows in set (0.00 sec)
+
+
+2) Write a query that produces all rows from the Customers table for which the salesperson’s number is 1001.
+mysql> select * from customers
+    -> where Snum=1001;
++------+---------+--------+--------+------+
+| Cnum | Cname   | City   | Rating | Snum |
++------+---------+--------+--------+------+
+| 2001 | Hoffman | London |    100 | 1001 |
+| 2006 | Clemens | London |    100 | 1001 |
++------+---------+--------+--------+------+
+2 rows in set (0.00 sec)
+
+
+
+
+3) Write a query that displays the Salespeople table with the columns in the following order: city, sname, snum, comm.
+mysql> select city, sname, snum, comm from salesperson;
++-----------+---------+------+------+
+| city      | sname   | snum | comm |
++-----------+---------+------+------+
+| London    | Peel    | 1001 | 0.12 |
+| San jose  | Serres  | 1002 | 0.13 |
+| London    | Motika  | 1004 | 0.11 |
+| Barcelona | Rifkin  | 1007 | 0.15 |
+| New York  | Axelrod | 1003 | 0.10 |
++-----------+---------+------+------+
+5 rows in set (0.00 sec)
+
+
+
+4) Write a select command that produces the rating followed by the name of each customer in San Jose.
+mysql> select Rating, cname as "Customer Name" from customers
+    -> where city = 'San Jose';
++--------+---------------+
+| Rating | Customer Name |
++--------+---------------+
+|    200 | Liu           |
+|    300 | Cisneros      |
++--------+---------------+
+2 rows in set (0.00 sec)
+
+
+
+
+5) Write a query that will produce the snum values of all salespeople (suppress the duplicates) with orders in the Orders table.
+mysql> select distinct(snum) from orders;
++------+
+| snum |
++------+
+| 1007 |
+| 1001 |
+| 1004 |
+| 1002 |
+| 1003 |
++------+
+5 rows in set (0.01 sec)
